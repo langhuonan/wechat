@@ -3,11 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
+title: 紫气楠楠
+subtitle: 记录点滴，分享世界
+description: 人间不值得
 keywords:
-author: John Doe
+author: Lval
+email: m1921219654@163.com
 language: zh-Hans
 timezone:
 
@@ -73,7 +74,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-matery
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
