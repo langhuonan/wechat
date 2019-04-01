@@ -1,0 +1,115 @@
+1-数据库：
+    关系型数据库：
+        数据之间有关系，数据是存储在硬盘上 ，可以永久存储，速度相对慢一些 
+        WAMP -M  mysql 数据库 
+        关系模型： 二维表格 模型
+    非关系型数据：
+        数据是存储在内存中，断点丢失 ，执行速度快
+ 
+
+2-数据库的结构
+    仓库：      大仓库             -->房间        --->货架 （存放货物）
+    数据库软件：数据库存储数据地方-->  一个数据库   ---->表格结构（存储数据的地方）
+
+3-数据库字段类型
+    int  整数 
+    float 小数 
+    decimal 金钱 
+    varchar(20)  长度可变的字符串  文章标题
+    char(20) 长度固定字符串 手机号  邮编
+    text 大量文本  
+    date 日期  
+
+4-字段约束条件
+    not null 不为空
+    default 设置默认值
+    primary key 主键 数据的唯一标识  通常是id 
+    auto_increment 自动增长
+    unique key  唯一键 数据不能重复 
+
+5-创建表的语法
+    create  table  表名（
+        字段  类型  约束条件,
+        字段  类型  约束条件,
+        字段  类型  约束条件,
+        字段  类型  约束条件
+    ）;
+
+
+6---  创建表 学号 ，班级、年龄，就业薪资
+--     create  table  表名（
+--         字段  类型  约束条件,
+--         字段  类型  约束条件,
+--         字段  类型  约束条件,
+--         字段  类型  约束条件
+--     ）;
+
+CREATE TABLE  stu (
+	id  int PRIMARY key  auto_increment, -- 主键  自动增长
+	name  VARCHAR(10) not NULL,  --  不能为空
+	sex  CHAR(6)  NOT NULL  DEFAULT '女',  -- 不能为空 有默认值
+	age int ,  
+	salary  DECIMAL NOT null  --  不能为空
+);
+
+
+7-对数据表的增删改查 （重点）
+
+-- 查看表中所有的数据  
+-- select  * from stu1; 
+
+
+8-向表中插入数据：
+
+insert into 表名 （字段1，字段2，字段3，字段4...） values(值1，值2 ，值3 ，值4...);
+
+//字段的顺序必须和值的顺序一一对应 
+//如果插入全部的数据 字段名可以不写
+
+insert into 表名  values(值1，值2 ，值3 ，值4...);
+
+-- INSERT INTO stu1 ( name,age,salay ) values('林平之3',30,20000);
+
+-- INSERT INTO  stu1 VALUES(null,'杨过','男',20,12000);
+
+9-删除数据
+    //where  条件   没有条件直接删除全部的数据
+    delete  from 表名 where  条件  
+
+    drop TABLE stu; //直接删除表  
+
+10-更新表中的数据
+    update 表名 set  字段=值，字段=值，字段=值 where 条件  
+    //如果没有条件 修改所有的数据  
+
+    
+    UPDATE stu1 set  name='春哥', sex='男',age=18,salay=1000  where id=13;
+
+11-查找
+    select 字段1，字段2 | * from 数据表名 [where 条件];
+
+    -- select * from stu1 ;
+
+-- 值查询指定的字段 
+-- select name ,salay from stu1;
+
+-- 查询性别为男的数据 
+-- stu1select * from stu1 where  sex='男';
+
+-- 查询 id小于15 
+-- select * from stu1 where  id<15;
+
+-- 查询 id=13 和id=15 
+
+-- select * from stu1 where  id=13 or id=15 ;  -- or 或者  and  并且  
+
+-- in 语法  
+-- select * from stu1 where  id  in (13,15,16) ;
+
+-- 模糊匹配查询   查询 姓林的哥们   林**  like  %通配符 
+
+-- select * from stu1 where  name  like '林%'; 
+
+select * from stu1 where  name like  '%哥';
+
+
